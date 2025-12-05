@@ -51,3 +51,8 @@ public class Producto implements Serializable{
     private Categoria categoria;
     
 }
+
+///
+///
+////*
+
