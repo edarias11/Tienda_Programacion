@@ -34,7 +34,7 @@ public class ProductoService {
     }
     
     @Transactional //Este metodo funciona para guardar y actualizar
-    public void save(Producto producto){ 
+    public void save(com.tienda.domain.Producto producto){ 
         productoRepository.save(producto);
     }
     

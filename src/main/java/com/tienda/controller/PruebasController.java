@@ -20,24 +20,11 @@ public class PruebasController {
     @Autowired
     private CategoriaService categoriaService;
 
-    @GetMapping("/listado") //localhost:8080//pruebas/listado
+    @GetMapping("/listado")
     public String listado(Model model) {
-        var productos = productoService.getProductos(false); //lista de productos
-        var categorias = categoriaService.getCategorias(false); //lista de categorias
-        model.addAttribute("productos", productos); //lista al html
-        model.addAttribute("totalProductos", productos.size()); //total de productos al html
-        model.addAttribute("categorias", categorias); //lista de categorias al html
-        return "/pruebas/listado"; //creacion del html
-    }
-
-    @GetMapping("/listado/{idCategoria}") //localhost:8080/pruebas/listado/categoria=Monitores (categoria=3)
-    public String listado(Model model, Categoria categoria) {
-        var productos = categoriaService.getCategoria(categoria).getProductos(); //asociacion
-        var categorias = categoriaService.getCategorias(false);
-        model.addAttribute("productos", productos);
-        model.addAttribute("totalProductos", productos.size());
-        model.addAttribute("categorias", categorias);
-        return "/pruebas/listado";
+        var lista = productoService.getProductos(false);
+        model.addAttribute("productos", lista);
+        return "/consultas/listado";
     }
 
     //Consulta JPA Ampliada

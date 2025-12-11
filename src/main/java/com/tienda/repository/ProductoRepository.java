@@ -13,7 +13,7 @@ import org.springframework.data.repository.query.Param;
 public interface ProductoRepository extends JpaRepository<Producto, Integer>{
     
     //JPARepository -> CRUD + Consultas a la BD (SELECT, DELETE, LIST)
-    
+     public List<Producto> findByActivoTrue();
     
     //JPA Ampliada
     public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup);
@@ -30,11 +30,3 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer>{
     
     
 }
-
-
-
-
-
-
-
-
